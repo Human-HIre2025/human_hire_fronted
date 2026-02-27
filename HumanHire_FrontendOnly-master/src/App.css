@@ -1,0 +1,73 @@
+.hero-bg{
+    background-image: url('./assets/about/original.jpg');
+}
+.appointment-bg{
+    background-image: url('./assets/appointment/appintment (2).jpg');
+    /* background-blend-mode: multiply;  */
+}.appointment-banner {
+    background-image: url('./assets/appointment/appintment (1).jpg');
+    /* background-blend-mode: multiply;  */
+}.client-banner {
+    background-image: url('./assets/cutout2.jpg');
+    /* background-blend-mode: multiply;  */
+    background-size: cover;
+}
+/* 
+.job-bg{
+    background-image: url('./assets/seekers/seekers (11).jpg');
+} */
+
+/* .fixed-section {
+    background-image: url('./assets/seekers/seekers (10).jpg');
+} */
+
+
+
+.bg-image-text {
+    background: url('https://images.unsplash.com/photo-1480714378408-67cf0d13bc1b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center / 150% no-repeat;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    filter: brightness(0.7);
+}
+
+@keyframes zoomOut {
+    0% {
+        transform: scale(5);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px) translateX(-50%);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) translateX(-50%);
+    }
+}
+
+@keyframes fadeOutUp {
+    0% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(-20px);
+        pointer-events: none;
+    }
+}
+
+@keyframes contentFadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
