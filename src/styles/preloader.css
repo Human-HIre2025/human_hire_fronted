@@ -1,0 +1,59 @@
+/* Preloader (unchanged, except improved transition) */
+.preloader-container {
+  position: fixed;
+  inset: 0;
+  background: white;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  opacity: 1;
+  transition: opacity 0.8s ease, filter 0.8s ease, visibility 0s linear 0.8s;
+  filter: blur(0px);
+  pointer-events: all;
+  visibility: visible;
+  contain: layout paint;
+}
+
+.preloader-container.fade-out {
+  opacity: 0;
+  filter: blur(8px);
+  pointer-events: none;
+  visibility: hidden;
+}
+
+/* Text animations (same as yours) */
+.preloader-text-wrapper {
+  text-align: center;
+  z-index: 2;
+}
+.preloader-text {
+  font-size: 5vw;
+  font-weight: bold;
+  background: url('../assets/cutout2.webp') center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  transform: scale(5);
+  animation: zoomThroughText 1.8s ease-in-out forwards;
+  contain: paint;
+  will-change: transform;
+}
+@keyframes zoomThroughText {
+  0% { transform: scale(5); }
+  100% { transform: scale(1); }
+}
+.preloader-subtext {
+  font-size: 1.2rem;
+  color: #888;
+  opacity: 0;
+  animation: fadeInText 1.2s ease-in forwards;
+  animation-delay: 0.3s;
+}
+@keyframes fadeInText {
+  to { opacity: 1; }
+}
+
