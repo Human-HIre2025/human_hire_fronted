@@ -42,7 +42,7 @@ const FixedBackgroundSection = () => {
       {/* Content */}
       <div className="relative z-10 flex items-center justify-center min-h-[80vh] px-4">
         <div ref={textRef} className="text-center max-w-5xl">
-          <h1 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-[#fef5f0] leading-tight">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-[#fef5f0] leading-tight">
             {/* <span className="block">
               Recruitment made easy, efficient, and effective—for every role
               that matters.
@@ -58,7 +58,7 @@ const FixedBackgroundSection = () => {
             <span className="block">
               empathy, and the right human connections.
             </span>
-          </h1>
+          </h2>
         </div>
       </div>
     </section>

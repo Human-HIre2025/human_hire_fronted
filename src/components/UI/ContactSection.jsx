@@ -110,7 +110,7 @@ export default function ContactSection() {
             {/* Right half */}
             <div className="w-1/2 bg-black bg-opacity-50 group-hover:bg-transparent flex flex-col justify-center items-center text-center p-3 transition-colors duration-300">
               <p className="text-lg font-extrabold text-[#fef5f0]">
-                {phoneNumber}
+                {"+44 7400 075848"}
               </p>
               <p className="text-sm text-[#fef5f0]">TALK TO AN EXPERT</p>
             </div>

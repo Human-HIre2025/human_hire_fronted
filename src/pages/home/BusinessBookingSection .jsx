@@ -539,10 +539,10 @@ const BusinessBookingSection = () => {
         {/* Left Section */}
         <div className="lg:w-1/2 flex flex-col justify-between bg-[#15171e] p-6 lg:p-8 rounded-2xl">
           <div>
-            <h1 className="text-2xl md:text-4xl font-extrabold leading-tight mb-6 text-center lg:text-left">
+            <h2 className="text-2xl md:text-4xl font-extrabold leading-tight mb-6 text-center lg:text-left">
               <span className="text-[#a64d79]">Connecting You to Talent</span>{" "}
               <span className="text-[#fef5f0]">That Drives Results.</span>
-            </h1>
+            </h2>
             <p className="text-gray-300 text-sm md:text-lg leading-relaxed text-center lg:text-left mb-8">
               We align exceptional talent with your strategic goals, ensuring
               every hire makes a measurable impact.
@@ -553,9 +553,9 @@ const BusinessBookingSection = () => {
                 <img src={contactimg} alt="Team" className="w-full h-full object-cover opacity-80" />
               </div>
               <div className="flex-1 p-4 flex flex-col justify-center bg-zinc-900 group-hover:bg-[#a64d79] transition-colors duration-300">
-                <div className="text-lg sm:text-2xl font-black text-white">{phoneNumber || "+44 7400 075848"}</div>
+                <div className="text-lg sm:text-2xl font-black text-white">{"+44 7400 075848"}</div>
                 <div className="text-[10px] sm:text-sm font-bold text-gray-400 uppercase tracking-widest group-hover:text-white">
-                  {contactEmail || "HR@HUMANHIRECORP.COM"}
+                  {"hr@humanhirecorp.com"}
                 </div>
               </div>
             </div>
@@ -607,8 +607,8 @@ const BusinessBookingSection = () => {
                 {!isCollapsed ? (
                   <div className="text-[10px] sm:text-xs space-y-2 mb-4">
                     <p className="font-black uppercase opacity-60">Get in Touch</p>
-                    <p className="truncate">{phoneNumber || "+44 7400"}</p>
-                    <p className="truncate lowercase">{contactEmail || "hr@human"}</p>
+                    <p className="truncate">{"+1 302 440 6916"}</p>
+                    <p className="truncate lowercase">{"hr@humanhirecorp.com"}</p>
                   </div>
                 ) : (
                   <div className="flex flex-col items-center gap-4 mb-4">

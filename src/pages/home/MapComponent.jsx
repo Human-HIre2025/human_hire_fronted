@@ -90,9 +90,9 @@ const MapChart = () => {
     >
       {/* Header Section */}
       <div className="text-center mt-10 mb-5 md:mb-10">
-        <h1 className="text-white text-2xl md:text-5xl font-bold px-4">
+        <h2 className="text-white text-2xl md:text-5xl font-bold px-4">
           We operate in <span className="text-[#ff0055]">5 Major Markets</span>
-        </h1>
+        </h2>
       </div>
 
       {/* Map Container - Height adjusted for mobile to show full map */}

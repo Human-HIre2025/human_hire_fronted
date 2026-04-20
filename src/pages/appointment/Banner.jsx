@@ -51,7 +51,7 @@ export default function Banner() {
                   </div>
                   <div>
                     <p className="text-[#fef5f0] font-extrabold text-base sm:text-lg md:text-xl">
-                      {phoneNumber || "+916376803459"}
+                      {"+44 7400 075848"}
                     </p>
                     <p className="text-gray-400 text-[0.6rem] sm:text-xs md:text-sm">TALK TO AN EXPERT</p>
                   </div>

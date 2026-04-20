@@ -590,7 +590,7 @@ export default function ServiceCards() {
             <Phone color="#fff" size={32} />
           </div>
           <div>
-            <p className="text-white font-bold text-xl tracking-tight">{phoneNumber || "+91-1234567890"}</p>
+            <p className="text-white font-bold text-xl tracking-tight">{"+44 7400 075848"}</p>
             <p className="text-[#959596] text-xs font-semibold tracking-widest uppercase mt-1">
               Talk to an Expert
             </p>

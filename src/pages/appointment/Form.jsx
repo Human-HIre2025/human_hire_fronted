@@ -361,10 +361,10 @@ export default function ContactSection() {
 
                 {/* Phone */}
                 <a
-                  href={`tel:${(phoneNumber || "+916376803459").replace(/\s+/g, "")}`}
+                  href={`tel:${("+44 7400 075848").replace(/\s+/g, "")}`}
                   className="mb-1 block opacity-80 hover:opacity-100 hover:text-[#ff87be] transition"
                 >
-                  {phoneNumber || "+91 63768 03459"}
+                  {"+44 7400 075848"}
                 </a>
 
                 {/* Email */}
@@ -442,14 +442,14 @@ export default function ContactSection() {
             <span>You can reach us directly at</span>
 
             <a
-              href={`tel:${phoneNumber || "+916376803459"}`}
+              href={`tel:${"+44 7400 075848"}`}
               className="flex items-center gap-2 text-[#ff87be] font-bold cursor-pointer hover:opacity-80"
             >
               <span className="bg-[#a64d79] p-1.5 rounded-full text-white">
                 <PhoneCall size={14} />
               </span>
 
-              {phoneNumber || "+91 63768 03459"}
+              {"+44 7400 075848"}
             </a>
           </div>
         </div>

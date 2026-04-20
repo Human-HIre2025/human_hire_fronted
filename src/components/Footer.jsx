@@ -80,12 +80,14 @@ const Footer = () => {
         {/* Logo + Social */}
         <div className="space-y-4 sm:space-y-6 lg:space-y-8">
           <div className="flex items-center h-fit mb-6 sm:mb-8 lg:mb-10">
+            <Link to="/">
             <img
               src={getOptimizedImageUrl(footerLogoUrl || logo)}
               alt="Footer Logo"
               className="w-auto h-16 sm:h-18 lg:h-20"
               loading="lazy"
             />
+            </Link>
           </div>
           <div
             className="text-gray-400 text-xs sm:text-sm md:text-base leading-relaxed"
@@ -166,28 +168,28 @@ const Footer = () => {
             {/* Phone */}
             <li>
               <a
-                href={`tel:${(phoneNumber || "(123) 456 7890").replace(/\D/g, "")}`}
+                href={`tel:${("+44 7400 075848").replace(/\D/g, "")}`}
                 className="flex items-center gap-3 sm:gap-4 group hover:text-[#fef5f0] transition-colors"
               >
                 <Phone
                   size={14}
                   className="group-hover:text-[#b44a84] transition-colors"
                 />
-                <span>{phoneNumber || "(123) 456 7890"}</span>
+                <span>{"+44 7400 075848"}</span>
               </a>
             </li>
 
             {/* Email */}
             <li>
               <a
-                href={`mailto:${contactEmail || "info@example.com"}`}
+                href={`mailto:${"hr@humanhirecorp.com"}`}
                 className="flex items-center gap-3 sm:gap-4 group hover:text-[#fef5f0] transition-colors break-words"
               >
                 <Mail
                   size={14}
                   className="group-hover:text-[#b44a84] transition-colors"
                 />
-                <span>{contactEmail || "info@example.com"}</span>
+                <span>{"hr@humanhirecorp.com"}</span>
               </a>
             </li>
 
@@ -205,7 +207,7 @@ const Footer = () => {
                   size={14}
                   className="group-hover:text-[#b44a84] transition-colors"
                 />
-                <span>{address || "123 King Street, NY"}</span>
+                <span>{"2803 PHILADELPHIA PIKE SUITE B, CLAYMONT, DELAWARE 19703"}</span>
               </a>
             </li>
           </ul>

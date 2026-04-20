@@ -317,9 +317,9 @@ const WhyChooseUs = () => {
       {/* ---------------- HEADER ---------------- */}
       <div className="text-center py-16 px-4">
         <h2 className="uppercase text-sm tracking-wider">History</h2>
-        <h1 className="text-3xl sm:text-4xl font-extrabold mt-2">
+        <h2 className="text-3xl sm:text-4xl font-extrabold mt-2">
           How We Got Here
-        </h1>
+        </h2>
         <p className="text-gray-400 max-w-3xl mx-auto mt-4">
           Turning talent into triumph through dedication and innovation. With a
           global presence and a human touch, we transform talent into the

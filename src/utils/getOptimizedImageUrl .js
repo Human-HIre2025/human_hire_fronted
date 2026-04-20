@@ -11,7 +11,6 @@ const getOptimizedImageUrl = (url) => {
     return url;
   }
 
-  console.log("pranjal log")
 
   return url.replace(
     "/upload/",

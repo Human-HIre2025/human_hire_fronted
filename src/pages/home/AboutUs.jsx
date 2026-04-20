@@ -74,9 +74,9 @@ const AboutUs = () => {
 
       {/* ---------------- HEADING ---------------- */}
       <div className="text-center mb-8 px-4">
-        <h1 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold">
+        <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold">
           We are <span>HUMANHIRE!</span>
-        </h1>
+        </h2>
         <p className="text-gray-400 max-w-3xl mx-auto mt-3">
           Trusted across four countries, we deliver tailored recruitment
           solutions that meet each client’s unique hiring needs.

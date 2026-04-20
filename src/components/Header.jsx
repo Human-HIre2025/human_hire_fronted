@@ -40,22 +40,24 @@ const Header = () => {
       <nav className="flex items-center justify-between px-4 sm:px-6 md:px-6 lg:px-12 py-3 md:py-3 lg:py-4 max-w-full sm:max-w-5xl lg:max-w-7xl mx-auto">
         {/* Logo */}
         <div className="flex-shrink-0">
-          <img
-            src={getOptimizedImageUrl(headerLogoUrl || logo, 161)}
-            srcSet={`
+          <Link to="/">
+            <img
+              src={getOptimizedImageUrl(headerLogoUrl || logo, 161)}
+              srcSet={`
     ${getOptimizedImageUrl(headerLogoUrl || logo, 120)} 120w,
     ${getOptimizedImageUrl(headerLogoUrl || logo, 161)} 161w,
     ${getOptimizedImageUrl(headerLogoUrl || logo, 220)} 220w
   `}
-            sizes="(max-width: 640px) 120px,
+              sizes="(max-width: 640px) 120px,
          (max-width: 1024px) 161px,
          220px"
-            width="161"
-            height="56"
-            alt="Human Hire Logo"
-            className="h-8 sm:h-10 md:h-8 lg:h-12 w-auto"
-            fetchpriority="high"
-          />
+              width="161"
+              height="56"
+              alt="Human Hire Logo"
+              className="h-8 sm:h-10 md:h-8 lg:h-12 w-auto"
+              fetchpriority="high"
+            />
+          </Link>
         </div>
 
         {/* Desktop Nav */}
@@ -108,9 +110,8 @@ const Header = () => {
 
       {/* Mobile Dropdown */}
       <div
-        className={`md:hidden bg-black bg-opacity-90 px-4 sm:px-6 py-4 sm:py-6 transition-all duration-500 ease-in-out overflow-hidden ${
-          isOpen ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0"
-        }`}
+        className={`md:hidden bg-black bg-opacity-90 px-4 sm:px-6 py-4 sm:py-6 transition-all duration-500 ease-in-out overflow-hidden ${isOpen ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0"
+          }`}
       >
         <ul className="space-y-3 sm:space-y-4 text-[#fef5f0] text-sm sm:text-base font-medium">
           {navItems.map((item) => (
