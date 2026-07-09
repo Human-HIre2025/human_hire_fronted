@@ -4,7 +4,8 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { motion, AnimatePresence } from "framer-motion";
 import carouselService from "../../services/carouselService";
 import getOptimizedImageUrl from "../../utils/getOptimizedImageUrl ";
-import { PenTool, Calendar, X, ArrowRight } from "lucide-react";
+import { PenTool, Calendar, X, ArrowRight, Search } from "lucide-react";
+import SEO from "../../components/SEO";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -13,6 +14,7 @@ const EventsAndAchievements = () => {
   const [blogsData, setBlogsData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [searchQuery, setSearchQuery] = useState("");
 
   const sectionRef = useRef(null);
   const cardRefs = useRef([]);
@@ -20,6 +22,16 @@ const EventsAndAchievements = () => {
   const setCardRef = useCallback((el, index) => {
     if (el) cardRefs.current[index] = el;
   }, []);
+
+  const handleOpenBlog = (blog) => {
+    setSelectedBlog(blog);
+    window.history.pushState({}, "", `/blogs?post=${blog._id}`);
+  };
+
+  const handleCloseBlog = () => {
+    setSelectedBlog(null);
+    window.history.pushState({}, "", "/blogs");
+  };
 
   useEffect(() => {
     const fetchData = async () => {
@@ -35,6 +47,19 @@ const EventsAndAchievements = () => {
     };
     fetchData();
   }, []);
+
+  useEffect(() => {
+    if (blogsData.length > 0) {
+      const params = new URLSearchParams(window.location.search);
+      const postId = params.get("post");
+      if (postId) {
+        const found = blogsData.find((b) => b._id === postId);
+        if (found) {
+          setSelectedBlog(found);
+        }
+      }
+    }
+  }, [blogsData]);
 
   useEffect(() => {
     if (selectedBlog) {
@@ -95,6 +120,23 @@ const EventsAndAchievements = () => {
 
   return (
     <div ref={sectionRef} className="bg-black font-sans antialiased overflow-x-hidden selection:bg-pink-600 selection:text-white">
+      <SEO
+        title={
+          selectedBlog
+            ? `${getTitle(selectedBlog.text)} | Recruitment & HR Insights`
+            : "Recruitment & HR Insights"
+        }
+        description={
+          selectedBlog
+            ? getTextPreview(selectedBlog.text, 150)
+            : "Read expert tips on RPO staffing, HR solutions, workforce consulting & global hiring trends from the Humanhire Corp blog."
+        }
+        canonical={
+          selectedBlog
+            ? `https://humanhirecorp.com/blogs?post=${selectedBlog._id}`
+            : "https://humanhirecorp.com/blogs"
+        }
+      />
 
       {/* SECTION 1: LATEST POSTS */}
       <section className="pt-24 pb-20 px-6 lg:px-20 relative overflow-hidden">
@@ -111,6 +153,7 @@ const EventsAndAchievements = () => {
               <div
                 key={blog._id}
                 ref={(el) => setCardRef(el, index)}
+                onClick={() => handleOpenBlog(blog)}
                 className="group flex flex-col h-full cursor-pointer max-w-xl mx-auto"
               >
                 <div className="aspect-[16/10] overflow-hidden rounded-3xl mb-10 relative border border-white/10 group-hover:border-pink-500/50 transition-colors duration-500 shadow-2xl">
@@ -147,7 +190,13 @@ const EventsAndAchievements = () => {
                     {getTextPreview(blog.text, 180)}
                   </p>
 
-                  <button className="w-fit flex items-center gap-3 bg-white text-black px-10 py-4 rounded-full font-black uppercase text-xs tracking-widest hover:bg-pink-500 hover:text-white transition-all duration-300 transform group-hover:translate-x-2">
+                  <button
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      handleOpenBlog(blog);
+                    }}
+                    className="w-fit flex items-center gap-3 bg-white text-black px-10 py-4 rounded-full font-black uppercase text-xs tracking-widest hover:bg-pink-500 hover:text-white transition-all duration-300 transform group-hover:translate-x-2"
+                  >
                     Read Article <ArrowRight size={16} />
                   </button>
                 </div>
@@ -169,6 +218,17 @@ const EventsAndAchievements = () => {
               </h2>
               <div className="h-1.5 w-24 bg-pink-600 rounded-full" />
             </div>
+
+            <div className="relative w-full md:w-80">
+              <input
+                type="text"
+                placeholder="Search articles..."
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                className="w-full bg-[#111] border border-white/10 rounded-full py-3 pl-11 pr-5 text-sm text-white placeholder-gray-500 focus:outline-none focus:border-pink-500 transition-colors"
+              />
+              <Search size={18} className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-500" />
+            </div>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
@@ -176,7 +236,8 @@ const EventsAndAchievements = () => {
               <div
                 key={blog._id}
                 ref={(el) => setCardRef(el, index + 2)}
-                className="bg-[#0a0a0a] rounded-[2.5rem] overflow-hidden border border-white/5 flex flex-col h-full hover:border-pink-500/30 transition-all duration-500 group relative shadow-2xl"
+                onClick={() => handleOpenBlog(blog)}
+                className="bg-[#0a0a0a] rounded-[2.5rem] overflow-hidden border border-white/5 flex flex-col h-full hover:border-pink-500/30 transition-all duration-500 group relative shadow-2xl cursor-pointer"
               >
                 <div className="aspect-[4/3] overflow-hidden relative">
                   <img
@@ -201,7 +262,10 @@ const EventsAndAchievements = () => {
                   </div>
 
                   <button
-                    onClick={() => setSelectedBlog(blog)}
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      handleOpenBlog(blog);
+                    }}
                     className="mt-auto w-full py-3 rounded-2xl bg-white/5 text-white font-bold text-xs uppercase tracking-[0.2em] border border-white/10 hover:bg-pink-600 hover:text-white hover:border-pink-600 transition-all duration-300"
                   >
                     Read More
@@ -229,7 +293,7 @@ const EventsAndAchievements = () => {
             exit={{ opacity: 0 }}
             className="fixed inset-0 z-[9999] flex items-center justify-center p-4 sm:p-8 bg-black/95 backdrop-blur-xl"
           >
-            <div className="absolute inset-0" onClick={() => setSelectedBlog(null)} />
+            <div className="absolute inset-0" onClick={handleCloseBlog} />
             <motion.div
               initial={{ scale: 0.95, opacity: 0, y: 30 }}
               animate={{ scale: 1, opacity: 1, y: 0 }}
@@ -239,7 +303,7 @@ const EventsAndAchievements = () => {
             >
               <button
                 className="absolute top-8 right-8 z-30 p-3 bg-white/5 hover:bg-pink-600 text-white rounded-2xl transition-all backdrop-blur-md border border-white/10"
-                onClick={() => setSelectedBlog(null)}
+                onClick={handleCloseBlog}
               >
                 <X size={24} />
               </button>

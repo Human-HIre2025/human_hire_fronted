@@ -1,4 +1,5 @@
 import React from 'react'
+import SEO from '../components/SEO'
 import Hero from './aboutUs/Hero'
 import JourneySection from './aboutUs/JourneySection'
 import MissionVisionGoal from './aboutUs/MissionVisionGoal'
@@ -12,6 +13,11 @@ import Banner from './aboutUs/ClientBanner'
 const AboutUs = () => {
   return (
     <div>
+        <SEO 
+          title="About Us | Global Recruitment & Staffing Experts"
+          description="Humanhire Corp is a global recruitment & RPO staffing partner. Our story, mission, and expertise in building great teams worldwide."
+          canonical="https://humanhirecorp.com/about"
+        />
         <Hero />
         <JourneySection />
         <MissionVisionGoal />

@@ -42,56 +42,69 @@
       />
     </noscript> -->
 
-    <!-- <script
-      async
-      src="https://www.googletagmanager.com/gtag/js?id=G-5KSSCJTMSB"
-    ></script> -->
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-CNFED9P48F"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
 
-    <!-- Optimize the Task Manager Thread -->
-    <!-- <script>
-      (function () {
-        //  Disable analytics on localhost (dev safety)
-        if (location.hostname === "localhost") return;
+      gtag('config', 'G-CNFED9P48F');
+    </script>
 
-        let gaLoaded = false;
-
-        const loadGA = () => {
-          if (gaLoaded) return;
-          gaLoaded = true;
-
-          window.dataLayer = window.dataLayer || [];
-          function gtag() {
-            dataLayer.push(arguments);
-          }
-          window.gtag = gtag;
-
-          const script = document.createElement("script");
-          script.src =
-            "https://www.googletagmanager.com/gtag/js?id=G-5KSSCJTMSB";
-          script.async = true;
-          script.defer = true;
-          document.head.appendChild(script);
-
-          gtag("js", new Date());
-          gtag("config", "G-5KSSCJTMSB", {
-            send_page_view: true,
-            anonymize_ip: true,
-            transport_type: "beacon",
-          });
-        };
-
-        // 1️ Load when browser is idle (best case)
-        if ("requestIdleCallback" in window) {
-          requestIdleCallback(loadGA, { timeout: 4000 });
-        } else {
-          setTimeout(loadGA, 4000);
+    <!-- Schema Markup -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Human Hire Corp",
+      "url": "https://humanhirecorp.com",
+      "logo": "https://res.cloudinary.com/daqbrkrj0/image/upload/f_auto,q_auto:best,w_720/v1753959864/uploads/8a08b38d-da3c-400a-9660-c1ae927a2ba1.png",
+      "description": "Human Hire Corp provides global recruitment, RPO staffing services, HR solutions, and workforce consulting, connecting businesses across the UK, India, and US with top talent.",
+      "email": "hr@humanhirecorp.com",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "2803 Philadelphia Pike Suite B",
+        "addressLocality": "Claymont",
+        "addressRegion": "Delaware",
+        "postalCode": "19703",
+        "addressCountry": "US"
+      },
+      "contactPoint": [
+        {
+          "@type": "ContactPoint",
+          "telephone": "+1-302-440-6916",
+          "contactType": "customer service",
+          "areaServed": "US"
+        },
+        {
+          "@type": "ContactPoint",
+          "telephone": "+44-7400-075848",
+          "contactType": "customer service",
+          "areaServed": "GB"
+        },
+        {
+          "@type": "ContactPoint",
+          "telephone": "+91-87695-21604",
+          "contactType": "customer service",
+          "areaServed": "IN"
         }
-        // 2️ Fallback: user interaction trigger (guaranteed load)
-        ["scroll", "mousemove", "touchstart"].forEach((event) => {
-          window.addEventListener(event, loadGA, { once: true, passive: true });
-        });
-      })();
-    </script> -->
+      ],
+      "sameAs": [
+        "https://www.facebook.com/p/HumanHire-Corp-61556217046410/",
+        "https://x.com/HumanhireCorp",
+        "https://www.linkedin.com/company/humanhirecorp/",
+        "https://www.instagram.com/humanhirecorp"
+      ],
+      "makesOffer": [
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Recruitment Process Outsourcing (RPO)" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Employer Branding" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Workforce Consulting" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Talent Acquisition" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "BPO & Support Staffing" } }
+      ]
+    }
+    </script>
   </head>
   <body>
     <div id="root"></div>
