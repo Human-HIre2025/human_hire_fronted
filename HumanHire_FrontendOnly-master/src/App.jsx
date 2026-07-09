@@ -1,5 +1,5 @@
 import React, { useEffect, useState, Suspense } from "react";
-import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
+import { BrowserRouter, Routes, Route, useLocation, Navigate } from "react-router-dom";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Preloader from "./components/UI/Preloader";
@@ -135,6 +135,9 @@ function AppContent() {
             <Route path="/terms-and-conditions" element={<Terms />} />
             <Route path="/privacy-policy" element={<Privacy />} />
             <Route path="/blogs" element={<EventsAndAchievements />} />
+            <Route path="/blog" element={<Navigate to="/blogs" replace />} />
+            <Route path="/about-us" element={<Navigate to="/about" replace />} />
+            <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
         </Suspense>
         <Footer />
