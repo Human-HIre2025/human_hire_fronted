@@ -115,8 +115,23 @@ const EventsAndAchievements = () => {
   if (loading) return <div className="py-20 text-center bg-black text-pink-500 h-screen flex items-center justify-center font-bold text-2xl tracking-widest animate-pulse">LOADING...</div>;
   if (error) return <div className="py-20 text-center bg-black text-white">{error}</div>;
 
-  const featuredBlogs = blogsData.slice(0, 2);
-  const remainingBlogs = blogsData.slice(2);
+  const formatDate = (dateString) => {
+    if (!dateString) return "Recent";
+    const date = new Date(dateString);
+    if (isNaN(date.getTime())) return "Recent";
+    return date.toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" });
+  };
+
+  const filteredBlogs = blogsData.filter((blog) => {
+    if (!searchQuery) return true;
+    const searchLower = searchQuery.toLowerCase();
+    const titleMatch = getTitle(blog.text).toLowerCase().includes(searchLower);
+    const contentMatch = getTextPreview(blog.text, 500).toLowerCase().includes(searchLower);
+    return titleMatch || contentMatch;
+  });
+
+  const featuredBlogs = filteredBlogs.slice(0, 2);
+  const remainingBlogs = filteredBlogs.slice(2);
 
   return (
     <div ref={sectionRef} className="bg-black font-sans antialiased overflow-x-hidden selection:bg-pink-600 selection:text-white">
@@ -182,7 +197,7 @@ const EventsAndAchievements = () => {
                     </div>
                     <div className="flex items-center gap-2 border-l border-white/10 pl-6">
                       <Calendar size={14} className="text-pink-500" />
-                      <span>Feb 19, 2026</span>
+                      <span>{formatDate(blog.createdAt || blog.updatedAt)}</span>
                     </div>
                   </div>
 
@@ -246,7 +261,7 @@ const EventsAndAchievements = () => {
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 opacity-80 group-hover:opacity-100"
                   />
                   <div className="absolute top-4 left-4 bg-black/60 backdrop-blur-md px-4 py-1.5 rounded-full border border-white/10 text-pink-500 text-[10px] font-black uppercase tracking-widest">
-                    AI Agents
+                    {blog.category || "Article"}
                   </div>
                 </div>
 
@@ -256,7 +271,7 @@ const EventsAndAchievements = () => {
                   </h4>
 
                   <div className="flex items-center gap-4 mb-8 text-gray-500 text-[11px] font-bold uppercase tracking-wider">
-                    <span className="flex items-center gap-1.5"><Calendar size={12} className="text-pink-500" /> Feb 16, 2026</span>
+                    <span className="flex items-center gap-1.5"><Calendar size={12} className="text-pink-500" /> {formatDate(blog.createdAt || blog.updatedAt)}</span>
                     <span className="w-1 h-1 rounded-full bg-pink-600" />
                     <span>5 Min Read</span>
                   </div>
@@ -318,7 +333,7 @@ const EventsAndAchievements = () => {
                   <div className="absolute inset-0 bg-gradient-to-t from-[#080808] via-transparent to-transparent" />
                   <div className="absolute bottom-0 left-0 p-10 md:p-16">
                     <span className="inline-block px-4 py-1.5 bg-pink-600 text-white text-[10px] font-black uppercase tracking-[0.3em] rounded-md mb-6">
-                      Deep Dive
+                      {selectedBlog.category || "Insight"}
                     </span>
                     <h2 className="text-white text-3xl md:text-5xl font-black leading-none tracking-tighter">
                       {getTitle(selectedBlog.text)}
