@@ -9,6 +9,12 @@ const getCarouselImagesByType = async (type) => {
   return response.data.data;
 };
 
+const getCarouselImageById = async (id) => {
+  const response = await api.get(`/carousel/${id}`);
+  return response.data.data;
+};
+
 export default {
   getCarouselImagesByType,
+  getCarouselImageById,
 };

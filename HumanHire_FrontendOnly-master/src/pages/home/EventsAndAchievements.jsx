@@ -1,4 +1,5 @@
 import React, { useRef, useState, useEffect, useCallback } from "react";
+import { useNavigate } from "react-router-dom";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { motion, AnimatePresence } from "framer-motion";
@@ -23,14 +24,10 @@ const EventsAndAchievements = () => {
     if (el) cardRefs.current[index] = el;
   }, []);
 
-  const handleOpenBlog = (blog) => {
-    setSelectedBlog(blog);
-    window.history.pushState({}, "", `/blogs?post=${blog._id}`);
-  };
+  const navigate = useNavigate();
 
-  const handleCloseBlog = () => {
-    setSelectedBlog(null);
-    window.history.pushState({}, "", "/blogs");
+  const handleOpenBlog = (blog) => {
+    navigate(`/blog/${blog._id}`);
   };
 
   useEffect(() => {
@@ -48,26 +45,7 @@ const EventsAndAchievements = () => {
     fetchData();
   }, []);
 
-  useEffect(() => {
-    if (blogsData.length > 0) {
-      const params = new URLSearchParams(window.location.search);
-      const postId = params.get("post");
-      if (postId) {
-        const found = blogsData.find((b) => b._id === postId);
-        if (found) {
-          setSelectedBlog(found);
-        }
-      }
-    }
-  }, [blogsData]);
-
-  useEffect(() => {
-    if (selectedBlog) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "unset";
-    }
-  }, [selectedBlog]);
+  // URL param checking is no longer needed since we have a dedicated route
 
   useEffect(() => {
     if (loading || blogsData.length === 0) return;
@@ -136,21 +114,9 @@ const EventsAndAchievements = () => {
   return (
     <div ref={sectionRef} className="bg-black font-sans antialiased overflow-x-hidden selection:bg-pink-600 selection:text-white">
       <SEO
-        title={
-          selectedBlog
-            ? `${getTitle(selectedBlog.text)} | Recruitment & HR Insights`
-            : "Recruitment & HR Insights"
-        }
-        description={
-          selectedBlog
-            ? getTextPreview(selectedBlog.text, 150)
-            : "Read expert tips on RPO staffing, HR solutions, workforce consulting & global hiring trends from the Humanhire Corp blog."
-        }
-        canonical={
-          selectedBlog
-            ? `https://humanhirecorp.com/blogs?post=${selectedBlog._id}`
-            : "https://humanhirecorp.com/blogs"
-        }
+        title="Recruitment & HR Insights"
+        description="Read expert tips on RPO staffing, HR solutions, workforce consulting & global hiring trends from the Humanhire Corp blog."
+        canonical="https://humanhirecorp.com/blogs"
       />
 
       {/* SECTION 1: LATEST POSTS */}
@@ -298,62 +264,6 @@ const EventsAndAchievements = () => {
           </div> */}
         </div>
       </section>
-
-      {/* CREATIVE DARK MODAL */}
-      <AnimatePresence>
-        {selectedBlog && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 z-[9999] flex items-center justify-center p-4 sm:p-8 bg-black/95 backdrop-blur-xl"
-          >
-            <div className="absolute inset-0" onClick={handleCloseBlog} />
-            <motion.div
-              initial={{ scale: 0.95, opacity: 0, y: 30 }}
-              animate={{ scale: 1, opacity: 1, y: 0 }}
-              exit={{ scale: 0.95, opacity: 0, y: 30 }}
-              className="relative bg-[#080808] w-full max-w-5xl max-h-[90vh] rounded-[3rem] overflow-hidden border border-white/10 shadow-[0_0_100px_rgba(236,72,153,0.1)] flex flex-col"
-              onClick={(e) => e.stopPropagation()}
-            >
-              <button
-                className="absolute top-8 right-8 z-30 p-3 bg-white/5 hover:bg-pink-600 text-white rounded-2xl transition-all backdrop-blur-md border border-white/10"
-                onClick={handleCloseBlog}
-              >
-                <X size={24} />
-              </button>
-
-              <div className="overflow-y-auto custom-scrollbar">
-                <div className="relative h-[40vh] md:h-[55vh] w-full">
-                  <img
-                    src={getOptimizedImageUrl(selectedBlog.imageUrl)}
-                    alt="Detail"
-                    className="w-full h-full object-cover"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#080808] via-transparent to-transparent" />
-                  <div className="absolute bottom-0 left-0 p-10 md:p-16">
-                    <span className="inline-block px-4 py-1.5 bg-pink-600 text-white text-[10px] font-black uppercase tracking-[0.3em] rounded-md mb-6">
-                      {selectedBlog.category || "Insight"}
-                    </span>
-                    <h2 className="text-white text-3xl md:text-5xl font-black leading-none tracking-tighter">
-                      {getTitle(selectedBlog.text)}
-                    </h2>
-                  </div>
-                </div>
-
-                <div className="p-10 md:p-16 pt-0">
-                  <div
-                    className="prose prose-invert prose-pink max-w-none text-gray-300 text-lg leading-relaxed
-                      prose-headings:text-white prose-headings:font-bold 
-                      prose-strong:text-pink-500 prose-a:text-pink-400"
-                    dangerouslySetInnerHTML={{ __html: selectedBlog.text }}
-                  />
-                </div>
-              </div>
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
 
       <style jsx>{`
         .custom-scrollbar::-webkit-scrollbar {

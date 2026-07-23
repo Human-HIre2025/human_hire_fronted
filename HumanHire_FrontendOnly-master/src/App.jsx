@@ -19,6 +19,7 @@ const ContactUs = React.lazy(() => import("./pages/ContactUs"));
 const Appointment = React.lazy(() => import("./pages/Appointment"));
 const Terms = React.lazy(() => import("./pages/Terms"));
 const Privacy = React.lazy(() => import("./pages/Privacy"));
+const BlogDetail = React.lazy(() => import("./pages/BlogDetail"));
 
 function AppContent() {
   const location = useLocation();
@@ -135,6 +136,7 @@ function AppContent() {
             <Route path="/terms-and-conditions" element={<Terms />} />
             <Route path="/privacy-policy" element={<Privacy />} />
             <Route path="/blogs" element={<EventsAndAchievements />} />
+            <Route path="/blog/:id" element={<BlogDetail />} />
             <Route path="/blog" element={<Navigate to="/blogs" replace />} />
             <Route path="/about-us" element={<Navigate to="/about" replace />} />
             <Route path="*" element={<Navigate to="/" replace />} />
