@@ -1,0 +1,62 @@
+<!-- Auto-generated on 2026-07-28T08:35:18.447Z by scripts/generate-llms-txt.js -->
+# HumanHireCorp
+
+> HumanHireCorp is a global recruitment and HR solutions company headquartered in London, UK, with offices in Delhi and Jaipur (India) and San Francisco, USA. We connect businesses worldwide with exceptional talent across IT, BPO, Engineering, and Customer Support industries. We deliver strategic hiring, HR consulting, and workforce outsourcing solutions that empower organisations to scale globally with confidence.
+
+## Core Services
+
+- [Talent Acquisition](https://humanhirecorp.com/services): End-to-end recruitment support to help businesses hire the right talent faster across global markets.
+- [Employer Branding](https://humanhirecorp.com/services): Strategic employer branding solutions to help businesses attract top-tier candidates and build a strong talent reputation.
+- [Recruitment Process Outsourcing (RPO)](https://humanhirecorp.com/services): Fully managed recruitment outsourcing designed to reduce hiring costs and improve hiring quality at scale.
+- [Workforce Consulting](https://humanhirecorp.com/services): Expert HR and workforce strategy consulting to help businesses build future-ready teams.
+
+## Industries We Serve
+
+- Business Process Outsourcing (BPO)
+- Information Technology — IT & Non-IT
+- Software Development
+- Finance
+- Banking
+- Business Consulting
+- Customer Support
+
+## Key Pages
+
+- [Homepage](https://humanhirecorp.com/): Global recruitment and staffing solutions for businesses worldwide.
+- [About Us](https://humanhirecorp.com/about): Learn about HumanHireCorp's mission, values, and global recruitment expertise.
+- [Services](https://humanhirecorp.com/services): Explore our complete range of recruitment and HR consulting services.
+- [Job Seekers](https://humanhirecorp.com/job-seekers): Career opportunities and job search support for candidates worldwide.
+- [Blogs](https://humanhirecorp.com/blogs): Expert recruitment insights, HR guides, and hiring strategies.
+- [Contact Us](https://humanhirecorp.com/contact-us): Get in touch with our global recruitment team.
+
+## Office Locations
+
+- **Headquarters**: London, United Kingdom
+- **India — Delhi**: 2nd Floor, A12, Mohan Garden, Block D, Bhagwati Garden, Uttam Nagar, New Delhi, Delhi 110059
+- **India — Jaipur**: Jaipur, Rajasthan, India
+- **US**: 2803 Philadelphia Pike Suite B, Claymont, Delaware 19703
+
+## Contact Information
+
+- **Website**: https://humanhirecorp.com
+- **Email**: hr@humanhirecorp.com
+- **Phone (UK)**: +44 7400 075848
+- **Phone (US)**: +1-302-440-6916
+- **Phone (IN)**: +91-87695-21604
+
+## About HumanHireCorp
+
+HumanHireCorp was founded with a mission to redefine global recruitment by combining human expertise with technology-driven hiring processes. Operating across India, the United Kingdom, and the United States, we specialise in connecting businesses with top-tier talent across multiple industries. Our solutions are scalable, flexible, and customised to meet the unique workforce needs of startups, SMEs, and multinational enterprises worldwide.
+
+## Why Choose HumanHireCorp
+
+- Expert team in global recruitment and HR solutions
+- Trusted by clients across India, UK, US, and international markets
+- Expert in multi-industry hiring: IT, BPO, Engineering, Customer Support
+- Scalable and flexible workforce solutions
+- Proven success in talent acquisition, RPO, and global placements
+- Technology-driven recruitment with AI-enabled assessments and digital onboarding
+
+## Latest Blog Posts
+
+_Blog posts could not be fetched at build time. Visit https://humanhirecorp.com/blogs for the latest articles._

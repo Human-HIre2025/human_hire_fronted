@@ -1,0 +1,20 @@
+User-agent: *
+Allow: /
+Disallow: /search/
+Disallow: /*?s=
+Disallow: /*?p=
+Disallow: /*?utm_
+Disallow: /*/feed
+Disallow: /*/rss
+Disallow: /*/embed
+Disallow: /cgi-bin/
+Disallow: /.env
+Disallow: /node_modules/
+Disallow: /src/
+Disallow: /.git/
+Disallow: /static/js/
+Disallow: /static/css/
+Disallow: /@vite/
+Disallow: /@react-refresh
+
+Sitemap: https://humanhirecorp.com/sitemap.xml

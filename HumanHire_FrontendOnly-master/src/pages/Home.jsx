@@ -1,4 +1,5 @@
 import React from "react";
+import SEO from "../components/SEO";
 import Hero from "./home/Hero";
 import OurPartners from "./home/OurPartners";
 import AboutUs from "./home/AboutUs";
@@ -14,6 +15,12 @@ import BusinessBookingSection from "./home/BusinessBookingSection ";
 const Home = () => {
   return (
     <>
+      <SEO
+        title="Human Hire Corp | Global Recruitment & Staffing Partner"
+        description="Human Hire Corp provides professional recruitment, staffing, and HR solutions connecting global businesses with top-tier talent."
+        canonical="https://humanhirecorp.com/"
+      />
+
       <Hero />
       <OurPartners />
       <AboutUs />
